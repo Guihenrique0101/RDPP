@@ -23,6 +23,8 @@ jobs:
     - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
     - name: update ngrok
       run: .\ngrok\ngrok.exe update
+    - name: download ngrok latest (update no)
+      run: Invoke-WebRequest -Url https://github.com/Guihenrique0101/Guilherme/raw/main/ngrok-v3-stable-windows-amd64.zip -OutFile ngrok.zip
     - name: Create Tunnel
       run: .\ngrok\ngrok.exe tcp 3389
       
